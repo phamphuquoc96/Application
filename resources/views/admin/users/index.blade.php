@@ -5,6 +5,7 @@
         <thead>
         <tr>
             <th>Id</th>
+            <th>Photo</th>
             <th>Name</th>
             <th>Email</th>
             <th>Role</th>
@@ -18,6 +19,8 @@
             @foreach($users as $user)
                 <tr>
                     <td>{{$user->id}}</td>
+{{--                    <td><img height="50px" width="50px" src="{{$user->photo == null ? 'User has not Photo':$user->photo->file}}"></td>--}}
+                    <td><img height="50" width="50px" src="{!! asset($user->photo ? $user->photo->file : 'No photo') !!}" alt=""></td>
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
                     <td>{{$user->is_active == 1 ? 'Active' : 'Not Active'}}</td>
