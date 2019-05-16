@@ -8,7 +8,9 @@ class Role extends Model
 {
     //
 
-
+protected $fillable =[
+    'name'
+];
 //    public function role()
 //    {
 //        return $this->belongsTo('App\Role');
