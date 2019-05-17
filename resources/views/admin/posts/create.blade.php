@@ -8,7 +8,7 @@
     </div>
     <div class="form-group">
         {!! Form::label('category_id', 'Category: ')!!}
-        {!! Form::select('category_id',array(0=>'Option 1'),null, ['class' => 'form-control']) !!}
+        {!! Form::select('category_id',array(''=>'Select Option') + $category,null, ['class' => 'form-control']) !!}
     </div>
     <div class="form-group">
         {!! Form::label('photo_id', 'Photo: ')!!}
