@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\CommentReply;
 use App\Http\Requests\PostsCreateRequest;
 use App\Photo;
 use App\User;
@@ -118,5 +119,12 @@ class AdminPostsController extends Controller
         unlink(public_path() . $post->photo->file);
         $post->delete();
         return redirect('/admin/posts');
+    }
+
+    public function post($id)
+    {
+        $post = Post::findOrFail($id);
+        $comments = $post->comments()->whereIsActive(1)->get();
+        return view('post', compact('post', 'comments'));
     }
 }

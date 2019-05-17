@@ -10,6 +10,8 @@
             <th>Photo</th>
             <th>Title</th>
             <th>Body</th>
+            <th></th>
+            <th></th>
             <th>Create at</th>
             <th>Update at</th>
         </tr>
@@ -25,6 +27,8 @@
                              src="{!! asset($post->photo ? $post->photo->file : 'No photo') !!}" alt=""></td>
                     <td>{{$post->title}}</td>
                     <td>{{str_limit($post->body,20)}}</td>
+                    <td><a href="{{route('home.post',$post->id)}}">View Post</a></td>
+                    <td><a href="{{route('comments.show',$post->id)}}">View Comment</a></td>
                     <td>{{$post->created_at ? $post->created_at->diffForHumans() : "null"}}</td>
                     <td>{{$post->updated_at ? $post->updated_at->diffForHumans() : "null"}}</td>
                 </tr>
